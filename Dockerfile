@@ -24,5 +24,5 @@ RUN chmod uga+x /usr/local/bin/install-php-extensions && sync
     && composer clear-cache
     #
     # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
-    RUN addgroup --gid 1000 --system dockeruser \
-    && adduser --system --uid 1000 --ingroup dockeruser dockeruser
+    RUN addgroup --gid $USER_GID --system $USERNAME \
+    && adduser --system --uid $USER_UID --ingroup $USERNAME $USERNAME
